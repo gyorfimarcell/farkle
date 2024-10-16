@@ -8,10 +8,12 @@ type DiceProps = {
 const Dice = (props: DiceProps) => {
     return (
         <div
-            className={"dice " + (props.dice.seleced ? "selected" : "")}
+            className={"dice " + (props.dice.seleced ? "selected " : "")}
             onClick={() => props.onClick()}
         >
-            <span>{props.dice.num}</span>
+            {[...Array(props.dice.num)].map(() => (
+                <div className="dot"></div>
+            ))}
         </div>
     );
 };
